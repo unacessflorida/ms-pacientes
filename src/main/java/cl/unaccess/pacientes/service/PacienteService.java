@@ -5,6 +5,7 @@ import cl.unaccess.pacientes.dto.PacienteDTO;
 import cl.unaccess.pacientes.repository.PacienteRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PacienteService {
@@ -35,4 +36,8 @@ public class PacienteService {
     public List<Paciente> obtenerTodos() {
         return repo.findAll();
     }
+
+    public Optional<Paciente> buscarPorRut(String rut) {
+    return repo.findByRut(rut);
+}
 }

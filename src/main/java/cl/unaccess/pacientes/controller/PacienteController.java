@@ -28,4 +28,11 @@ public class PacienteController {
     public ResponseEntity<List<Paciente>> listar() {
         return ResponseEntity.ok(service.obtenerTodos());
     }
+
+    @GetMapping("/rut/{rut}")
+public ResponseEntity<Paciente> buscarPorRut(@PathVariable String rut) {
+    return service.buscarPorRut(rut)
+        .map(ResponseEntity::ok)
+        .orElse(ResponseEntity.notFound().build());
+}
 }
